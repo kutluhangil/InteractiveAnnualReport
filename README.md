@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="docs/media/hero.svg" alt="London Bee Project — an interactive annual impact report" width="100%">
+<img src="docs/media/hero.svg" alt="London Bee Report — a Thames corridor map with rooftop hives, bees along the river, headline counters and the rooftop calculator" width="100%">
 
 <p>
   <img alt="React" src="https://img.shields.io/badge/React-Vite-ffc53d?style=for-the-badge&labelColor=0c0f07">
@@ -34,8 +34,31 @@ Annual reports are usually a PDF nobody opens. This one is a page you explore: a
 | **Biodiversity curves** | Species and pollinator counts over the season, filterable by borough. |
 | **Climate simulator** | Rainwater retention and urban heat-island effects of the green roofs. |
 | **Community impact** | Honey donated to food banks, volunteer hours and school visits. |
-| **Report assistant** | Ask questions about the numbers in plain language. |
-| **PDF export** | The whole report, laid out for print. |
+| **Pollen calendar** | Month by month across 2026, filterable by cohort: honeybees, bumblebees, solitary and mason bees, and the rooftop nectar flow. |
+| **Rooftop calculator** | Slide a roof from 50 to 1000 m² and see the microclimate cooling, native biodiversity and community harvest it would add. |
+| **Food sharing** | The raw harvest and the jars donated to food banks. |
+| **Education** | Rooftop lab field trips and youth and community attendees. |
+| **Roadmap** | The strategic goals for the next season and a pledge target. |
+| **Share and read** | Share cards for each key finding, a reading-time estimate in the navbar, light and dark themes. |
+| **PDF export** | The whole report laid out for print through `html2pdf.js`. |
+
+<img src="docs/media/divider.svg" width="100%" alt="">
+
+## Reading order
+
+The page is a long scroll that reads like a report, with motion only where it carries meaning (numbers counting up as they enter, charts drawing in):
+
+| Section | What it shows |
+|---|---|
+| Overview | The headline figures for the season |
+| Borough corridor | All 11 active boroughs on the D3-geo map, with zoom and per-borough metrics |
+| Biodiversity growth | Species and pollinator streams over the season |
+| Pollen calendar | What is flowering and who is feeding, month by month |
+| Stormwater and climate | Water captured and native plant species per roof |
+| Sector impact | How the work lands across sectors |
+| Food sharing · education | The community side: honey, jars, field trips, attendees |
+| Stories | Short narratives from the rooftops |
+| Roadmap and thanks | Next season's goals and the people who made it happen |
 
 <img src="docs/media/divider.svg" width="100%" alt="">
 
@@ -49,15 +72,16 @@ Annual reports are usually a PDF nobody opens. This one is a page you explore: a
 
 ```sh
 npm install
-cp .env.example .env.local   # optional Gemini key for the report assistant
 npm run dev                  # http://localhost:3000
 npm run build
+npm run lint                 # tsc --noEmit
 ```
 
 ```
 src/components/   map, charts, simulator, story sections, export
 src/data/         boroughs, sites, metrics
-src/utils/        geo and number helpers
+src/utils/        PDF export, reading time, motion presets
+src/context/      light / dark theme
 ```
 
 <div align="center">
